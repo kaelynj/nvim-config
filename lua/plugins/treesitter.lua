@@ -5,27 +5,39 @@
 --     'nvim-treesitter' wraps the Neovim treesitter API to provide
 --     functionalities such as highlighting and incremental selection, and a
 --     command to easily install parsers.
-require('nvim-treesitter.configs').setup({
-	highlight = {
-		enabled = true,
+
+require('nvim-treesitter').setup({
+	build = ":TSUpdate",
+	opts = {
+		highlight = {enable = true},
 	},
-	textobjects = {
-    select = {
-      enable = true,
-      lookahead = true,
-      keymaps = {
-        ['af'] = '@function.outer',
-        ['if'] = '@function.inner',
-        ['ac'] = '@class.outer',
-        ['ic'] = '@class.inner',
-      }
-    },
-  },
-	parser_install_dir = "$VIM/lua/treesitter-parsers",
-	ensure_installed = { 
-		-- Ensure specific parsers are installed every time vim opens
-	 },
+	config = function(_, opts)
+		require("nvim-treesitter.configs").serupt(opts)
+	end,
 })
+
+-- require('nvim-treesitter.configs').setup({
+-- 	highlight = {
+-- 		enabled = true,
+-- 	},
+-- 	textobjects = {
+--     select = {
+--       enable = true,
+--       lookahead = true,
+--       keymaps = {
+--         ['af'] = '@function.outer',
+--         ['if'] = '@function.inner',
+--         ['ac'] = '@class.outer',
+--         ['ic'] = '@class.inner',
+--       }
+--     },
+--   },
+-- 	parser_install_dir = "$VIM/lua/treesitter-parsers",
+-- 	ensure_installed = { 
+-- 		'norg',
+-- 		'vim',-- Ensure specific parsers are installed every time vim opens
+-- 	 },
+-- })
 
 -- Add a lightweight treesitter module to show context of the currently visible buffer contents.
 --  This is primarily useful for looking at functions and their contents.

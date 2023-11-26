@@ -8,21 +8,22 @@
 require('neorg').setup({
 	dependencies = {"nvim-lua/plenary.nvim"},
 	build = ":Neorg sync-parsers",
-	cmd = "Neorg",
-	ft = "norg",
+	-- cmd = "Neorg",
+	-- ft = "norg",
 	load = {
 			["core.defaults"] = {}, -- Loads default behaviour
-			["core.concealer"] = {}, -- Adds pretty icons to your documents
+			["core.concealer"] = {
+			}, -- Adds pretty icons to your documents
 			["core.dirman"] = { -- Manages Neorg workspaces
 				config = {
 					workspaces = {
-					eclipse_phase = "~/notes/eclipse-phase",
-					oldGods = "~/notes/old-gods-of-appalachia",
-					homelab = "~/notes/homelab",
+					-- eclipse_phase = "~/notes/eclipse-phase",
+					-- oldGods = "~/notes/old-gods-of-appalachia",
+					-- homelab = "~/notes/homelab",
 					testing = "~/notes/neorg-testing",
 					},
 				},
 			},
 	 },
-	 requires = "nvim-lua/plenary.nvim",
 })
+vim.opt.conceallevel=2

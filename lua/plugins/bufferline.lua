@@ -7,9 +7,14 @@
 require('bufferline').setup({
 	options = {
     mode = 'buffers', -- Tell bufferline we want one tab per file
+		-- mode = 'tabs',       -- Only work with tabpages rather than buffers
     offsets = {
-      {filetype = 'NvimTree'} -- Tell bufferline to not create a tab in tree
-			                        --  explorer
+      {filetype = {        -- Tell bufferline to not create a tab in tree
+					'NvimTree',      --  explorer
+					'checkhealth',
+				}
+			} 
+			                        
     },
   },
 	-- Modify the colors of the components in each rendered tab

@@ -33,12 +33,12 @@ vim.g.loaded_netrwPlugin = 1
 -- Set the leader key to space
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
--- Set a global copy/past sequence with 'gy' and 'gp'
-vim.keymap.set({'n', 'x'}, 'gy', '"+y')
-vim.keymap.set({'n', 'x'}, 'gp', '"+p')
--- Modify d and dd to delete text without changing internal registers
-vim.keymap.set({'n', 'x'}, 'd', '"_d')
-vim.keymap.set({'n', 'x'}, 'dd', '"_dd')
+-- -- Set a global copy/past sequence with 'gy' and 'gp'
+-- vim.keymap.set({'n', 'x'}, 'gy', '"+y')
+-- vim.keymap.set({'n', 'x'}, 'gp', '"+p')
+-- -- Modify d and dd to delete text without changing internal registers
+-- vim.keymap.set({'n', 'x'}, 'd', '"_d')
+-- vim.keymap.set({'n', 'x'}, 'dd', '"_dd')
 require('config.keymaps')
 
 -- ========================================================================== --
@@ -145,44 +145,77 @@ lazy.opts = {} -- Set this to configure options for the lazy plugin manager itse
 lazy.setup({
   -- List of plugins
 	{'folke/tokyonight.nvim'},                   -- Tokyonight theme
-	{'nvim-lualine/lualine.nvim'},               -- lualine bottom banner
-	{'kyazdani42/nvim-web-devicons'},            -- Add icon highlighting
-	{'akinsho/bufferline.nvim'},                 -- Add file tabs at top 
-	{'lukas-reineke/indent-blankline.nvim'},     -- Add indent guide highlights
-	{'nvim-treesitter/nvim-treesitter'},         -- Syntax highlighting
-	{'nvim-treesitter/nvim-treesitter-context'}, -- Display function contexts
-	{'numToStr/Comment.nvim'},                   -- Add 'gc'/'gbc' comment command
-	{'tpope/vim-surround'},                      -- Manipulate surrounding patterns
-	{'kyazdani42/nvim-tree.lua'},                -- Tree file explorer
-	{'akinsho/toggleterm.nvim'},                 -- Terminal UI window
-	{'tpope/vim-fugitive'},                      -- Fancy UI for git
-	{'lewis6991/gitsigns.nvim'},                 -- Show 'signs' of modified lines
+	{'nvim-lualine/lualine.nvim',                -- lualine bottom banner
+		commit = "2248ef2",
+	},               
+	{'kyazdani42/nvim-web-devicons',             -- Add icon highlighting
+		commit = "cdbcca2",
+	},            
+	{'akinsho/bufferline.nvim',                  -- Add file tabs at top
+		tag = "v4.4.0",
+	},                  
+	{'lukas-reineke/indent-blankline.nvim',      -- Add indent guide highlights
+		tag = "v3.3.7",
+	},     
+	{'nvim-treesitter/nvim-treesitter',          -- Syntax highlighting
+		tag = "v0.9.1"
+	},         
+	{'nvim-treesitter/nvim-treesitter-context',  -- Display function contexts
+		commit = "bf4d15e",
+	}, 
+	{'numToStr/Comment.nvim',                    -- Add 'gc'/'gbc' comment command
+		commit = "0236521",
+	},                   
+	{'tpope/vim-surround',                       -- Manipulate surrounding patterns
+		commit = "3d188ed",
+	},                      
+	{'kyazdani42/nvim-tree.lua',                 -- Tree file explorer
+		commit = "5e4475d",
+	},                
+	{'akinsho/toggleterm.nvim',                  -- Terminal UI window
+		commit = "fb0c365",
+	},                 
+	{'tpope/vim-fugitive',                       -- Fancy UI for git
+		commit = "46eaf89",
+	},                      
+	{'lewis6991/gitsigns.nvim',                  -- Show 'signs' of modified lines
+		commit = "0ccd5fb",
+	},                 
 	{'moll/vim-bbye'},                           -- Cleaner buffer closing
-	{'folke/which-key.nvim'},                    -- Keybinding popup menu
+	{'folke/which-key.nvim',                     -- Keybinding popup menu
+		-- tag = "v1.6.0",
+		commit = "4433e5e",
+	},                    
 -------------------------------------------------------------------------------
 --  BEGIN TELESCOPE PLUGIN & DEPENDENCIES
 ------------------------------------------------------------------------------
 -- Telescope is a super useful fuzzy finder, but requires some configuration
 --   and dependencies to be installed.
-	{'nvim-telescope/telescope.nvim',tag = '0.1.4'},-- Advised to specify tag 
+	{'nvim-telescope/telescope.nvim',
+		tag = '0.1.4',    -- Advised to specify tag 
+	},
   -- Use fzf alg for telescope (needs to be compiled)
-	{'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+	{'nvim-telescope/telescope-fzf-native.nvim',
+		build = 'make',
+	},
 	-- Collection of lua modules needed for telescope
-	{'nvim-lua/plenary.nvim'},                  
+	{'nvim-lua/plenary.nvim',
+		tag = "v0.1.4",
+	},                  
 -------------------------------------------------------------------------------
 --  END TELESCOPE PLUGIN & DEPENDENCIES
 ------------------------------------------------------------------------------
 	{'Tyler-Barham/floating-help.nvim'},         -- Floating help window 
-	{'nvimdev/dashboard-nvim'},                  -- Doom-emacs-like dashboard
-	{'m4xshen/autoclose.nvim'},                  -- Autoclose brakets
--------------------------------------------------------------------------------
---  BEGIN NEORG PLUGIN & DEPENDENCIES
-------------------------------------------------------------------------------
-	{'nvim-neorg/neorg'}
-	                        -- Organize your life plugin
--------------------------------------------------------------------------------
---  END TELESCOPE PLUGIN & DEPENDENCIES
-------------------------------------------------------------------------------
+	{'nvimdev/dashboard-nvim',                   -- Doom-emacs-like dashboard
+		commit = "63df284",
+	},                  
+	{'m4xshen/autoclose.nvim',                   -- Autoclose brakets
+		commit = "37e1158",
+	},                  
+	{'nvim-neorg/neorg',                         -- Organize your life plugin
+		tag = "v6.2.0",
+	},
+	                        
 })
 
 

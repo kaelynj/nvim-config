@@ -1,0 +1,6 @@
+nvim.custom
+lua/treesitter-parsers
+lazy-lock.json
+package-lock.json
+package.json
+
